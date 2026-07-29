@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 32">
+  <g>
+    <rect x="0" y="2" width="28" height="28" rx="7" fill="none" stroke="#14171a" stroke-width="2"/>
+    <path d="M7 21 L21 7" stroke="#0891b2" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="38" y="23" font-family="'Geist', system-ui, sans-serif" font-size="20" font-weight="600" fill="#14171a">Cleave</text>
+</svg>

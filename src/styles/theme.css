@@ -1,0 +1,73 @@
+/* Cleave design tokens.
+   Dark is the primary identity (precision editing tool). Light is a
+   secondary, auto-detected variant — same structure, adjusted contrast. */
+
+:root {
+  --bg: #0a0b0d;
+  --surface: #131519;
+  --elevated: #1c1f24;
+  --border: #2a2e34;
+  --border-strong: #3a3f47;
+  --text: #e7eaec;
+  --text-secondary: #8b939c;
+  --text-tertiary: #565c64;
+  --accent: #22d3ee;
+  --accent-strong: #00e5ff;
+  --accent-soft: rgba(34, 211, 238, 0.12);
+  --accent-ink: #00181c;
+  --danger: #f2555a;
+
+  --font-display: 'Geist', system-ui, sans-serif;
+  --font-body: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f5f6;
+    --surface: #ffffff;
+    --elevated: #ffffff;
+    --border: #dde1e4;
+    --border-strong: #c7ccd1;
+    --text: #14171a;
+    --text-secondary: #565c64;
+    --text-tertiary: #8b939c;
+    --accent: #0891b2;
+    --accent-strong: #0e7490;
+    --accent-soft: rgba(8, 145, 178, 0.1);
+    --accent-ink: #ffffff;
+    --danger: #c8323a;
+
+    color-scheme: light;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

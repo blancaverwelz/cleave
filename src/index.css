@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "./styles/theme.css";
+
+:root {
+  --tw-accent: var(--accent);
+}
