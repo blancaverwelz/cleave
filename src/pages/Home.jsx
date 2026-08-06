@@ -3,6 +3,7 @@ import Dropzone from '../components/Dropzone.jsx'
 import DissolveCanvas from '../components/DissolveCanvas.jsx'
 import ResultView from '../components/ResultView.jsx'
 import LogoMark from '../components/LogoMark.jsx'
+import UploadButton from '../components/UploadButton.jsx'
 import { removeBackground } from '../lib/removeBackground.js'
 
 // Explicit states, not just "loading / loaded" — see crud-app-playbook.
@@ -77,7 +78,12 @@ export default function Home() {
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center gap-10 px-6 py-16">
+    <main
+      className={[
+        'mx-auto flex w-full flex-1 flex-col items-center gap-10 px-6 py-16',
+        state === STATE.RESULT ? 'max-w-6xl justify-start' : 'max-w-3xl justify-center',
+      ].join(' ')}
+    >
       <header className="flex flex-col items-center gap-3 text-center">
         <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)]">
           client-side / private / no upload
@@ -92,7 +98,10 @@ export default function Home() {
       </header>
 
       {state === STATE.IDLE && (
-        <Dropzone onFileSelected={handleFileSelected} />
+        <div className="flex w-full flex-col items-center gap-4">
+          <UploadButton onFileSelected={handleFileSelected} />
+          <Dropzone onFileSelected={handleFileSelected} />
+        </div>
       )}
 
       {state === STATE.PROCESSING && (
@@ -130,9 +139,14 @@ export default function Home() {
         </div>
       )}
 
-      {state === STATE.RESULT && resultUrl && (
+      {state === STATE.RESULT && resultUrl && originalUrl && (
         <div className="flex w-full flex-col items-center gap-6">
-          <ResultView resultSrc={resultUrl} fileName={fileName} />
+          <ResultView
+            originalSrc={originalUrl}
+            resultSrc={resultUrl}
+            fileName={fileName}
+            onFileSelected={handleFileSelected}
+          />
           {processingMs !== null && (
             <p className="font-mono text-xs text-[var(--text-tertiary)]">
               processed_in {processingMs}ms — model: imgly/isnet-quant, local

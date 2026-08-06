@@ -11,10 +11,10 @@
   --text: #e7eaec;
   --text-secondary: #8b939c;
   --text-tertiary: #565c64;
-  --accent: #22d3ee;
-  --accent-strong: #00e5ff;
-  --accent-soft: rgba(34, 211, 238, 0.12);
-  --accent-ink: #00181c;
+  --accent: #006be8;
+  --accent-strong: #1479f2;
+  --accent-soft: rgba(0, 107, 232, 0.12);
+  --accent-ink: #f5faff;
   --danger: #f2555a;
 
   --font-display: 'Geist', system-ui, sans-serif;
@@ -34,9 +34,9 @@
     --text: #14171a;
     --text-secondary: #565c64;
     --text-tertiary: #8b939c;
-    --accent: #0891b2;
-    --accent-strong: #0e7490;
-    --accent-soft: rgba(8, 145, 178, 0.1);
+    --accent: #0050b3;
+    --accent-strong: #003d9a;
+    --accent-soft: rgba(0, 80, 179, 0.1);
     --accent-ink: #ffffff;
     --danger: #c8323a;
 

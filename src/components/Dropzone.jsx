@@ -1,8 +1,11 @@
 import { useCallback, useRef, useState } from 'react'
+import { DragDropIcon } from './icons.jsx'
 
 const ACCEPTED_TYPES = ['image/png', 'image/jpeg', 'image/webp']
 
-export default function Dropzone({ onFileSelected }) {
+/** Drag-and-drop surface. `compact` shrinks the padding/icon for use in the
+ *  result view's sidebar; the full-size version stays on the landing page. */
+export default function Dropzone({ onFileSelected, compact = false }) {
   const [isDragging, setIsDragging] = useState(false)
   const [error, setError] = useState(null)
   const inputRef = useRef(null)
@@ -43,24 +46,23 @@ export default function Dropzone({ onFileSelected }) {
         onDragLeave={() => setIsDragging(false)}
         onDrop={onDrop}
         className={[
-          'group flex w-full cursor-pointer flex-col items-center justify-center gap-3',
-          'rounded-lg border px-8 py-16 text-center transition-colors',
+          'group flex w-full cursor-pointer flex-col items-center justify-center',
+          'rounded-lg border text-center transition-colors',
+          compact ? 'gap-2 px-4 py-8' : 'gap-3 px-8 py-16',
           isDragging
             ? 'border-[var(--accent)] bg-[var(--accent-soft)]'
             : 'border-[var(--border)] bg-[var(--surface)] hover:border-[var(--border-strong)]',
         ].join(' ')}
       >
-        <span className="font-mono text-xs uppercase tracking-widest text-[var(--text-tertiary)]">
-          drop_image.png
-        </span>
-        <span className="text-lg text-[var(--text)]">
-          Drop an image, or{' '}
-          <span className="text-[var(--accent)] underline underline-offset-4">
-            browse files
-          </span>
+        <DragDropIcon
+          size={compact ? 28 : 40}
+          className="text-[var(--text-secondary)]"
+        />
+        <span className={compact ? 'text-sm text-[var(--text)]' : 'text-lg text-[var(--text)]'}>
+          Or drag and drop
         </span>
         <span className="font-mono text-xs text-[var(--text-tertiary)]">
-          PNG / JPG / WEBP — processed entirely on your device
+          PNG / JPG / WebP - processed entirely on your device
         </span>
       </button>
 
