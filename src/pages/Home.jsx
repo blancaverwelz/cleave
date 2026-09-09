@@ -86,7 +86,7 @@ export default function Home() {
     >
       <header className="flex flex-col items-center gap-3 text-center">
         <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)]">
-          client-side / private / no upload
+          client-side / private / stays on your device
         </span>
         <h1 className="flex items-center gap-3 font-[var(--font-display)] text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl">
           <LogoMark size={36} className="sm:h-10 sm:w-10" />
